@@ -1,4 +1,4 @@
-# Project Name & Git Workflow Guide
+# Git
 
 This repository hosts the source code. This document outlines our professional **Git workflow, branching strategies, and contribution guidelines** to ensure codebase stability and seamless continuous integration.
 
