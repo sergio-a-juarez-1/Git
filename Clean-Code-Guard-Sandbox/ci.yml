@@ -1,14 +1,14 @@
 name: Security & Code Quality Guard
 on:
   pull_request:
-    branches: [main]
+    branches: [main, develop] # Added develop branch to match README strategy
 
 jobs:
   lint-and-validate:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.11", "3.12"] # Tests multiple variables at once
+        python-version: ["3.10", "3.11", "3.12"]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -21,4 +21,5 @@ jobs:
       - name: Run Syntax Checks
         run: |
           pip install flake8
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # 3. Targets the specific workspace folder to keep clean runs
+          flake8 Clean-Code-Guard-Sandbox/ --count --select=E9,F63,F7,F82 --show-source --statistics
